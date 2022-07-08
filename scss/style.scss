@@ -221,6 +221,7 @@ $maxWidthContainer: 1100;
   }
 
   &__container {
+    position: relative;
     display: grid;
     grid-template-columns: 50px auto auto auto 50px;
     grid-template-rows: 50px auto auto auto auto 50px;
@@ -245,7 +246,6 @@ $maxWidthContainer: 1100;
     text-transform: uppercase;
     align-items: center;
     color: $white;
-
     text-shadow: 2px 3px 5px $white;
     @include adaptiv("font-size", 18, 12, 0);
     @include adaptiv("margin-top", 50, 30, 0);
@@ -266,6 +266,10 @@ $maxWidthContainer: 1100;
         margin: 0 0 0 30px;
         background-color: $white;
         height: 1px;
+      }
+      @media (max-width: 770px) {
+        grid-row: 2;
+        align-self: center;
       }
       @media (max-width: 500px) {
         &::after {
@@ -300,7 +304,6 @@ $maxWidthContainer: 1100;
 
   &__title {
     font-family: "IBM Plex Serif", sans-serif;
-
     grid-row: 2;
     grid-column: 2;
   }
@@ -313,88 +316,43 @@ $maxWidthContainer: 1100;
   grid-column: 2/5;
   align-items: center;
 
-  &__logo {
-    @media (max-width: 770px) {
-      order: 2;
-      margin-left: auto;
-    }
+  &__block {
+    display: flex;
+    align-items: center;
   }
   &__logo img {
     border-radius: 10px;
     width: 70px;
     height: 70px;
   }
-  @media (max-width: 770px) {
-    position: relative;
-
-    justify-content: center;
-
-    @media (max-width: 400px) {
-      justify-content: start;
-    }
-  }
 }
 .nav {
   list-style-type: none;
   display: flex;
-  margin: 15px 0;
   border-radius: 15px;
   text-transform: uppercase;
-  @media (max-width: 958px) {
-    // display: none;
-
-    background-color: $light-grey;
-
-    justify-content: center;
-
-    @media (max-width: 770px) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      box-shadow: 4px 7px 7px $dark;
-      background-color: $light-grey;
-      flex-direction: column;
-      z-index: 2;
-      width: 300px;
-      margin: 0;
-      justify-content: center;
-      align-items: center;
-      text-shadow: 1px 2px 3px $dark;
-      border-radius: 3px;
-      display: none;
-      @include adaptiv("width", 300, 250, 0);
-
-      @media (max-width: 400px) {
-        top: 72px;
-      }
-    }
+  @media (max-width: 770px) {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 7, 7, 0.9);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: all 1s ease 0s;
+    flex-direction: column;
+    padding-top: 130px;
+    border-radius: 0;
   }
-
   &__item {
     margin-top: 0;
     margin-right: 20px;
-    @media (max-width: 958px) {
-      display: flex;
-      padding: 10px;
-      @include adaptiv("margin-right", 20, 12, 0);
-
-      @media (max-width: 760px) {
-        padding: 20px;
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        border-block-end: 1px solid $dark;
-        margin: 0;
-        transition: 0.5s;
-        &:hover {
-          background-color: $grey;
-          box-shadow: inset 2px 2px 8px $dark;
-        }
-      }
+    @media (max-width: 770px) {
+      margin: 0 0 50px 50px;
     }
   }
   &__link {
-    text-decoration: none;
     color: $white;
     font-family: "IBM Plex Serif", sans-serif;
     font-weight: bold;
@@ -402,32 +360,23 @@ $maxWidthContainer: 1100;
     padding: 5px 8px;
     transition: all ease 1s;
     letter-spacing: 2px;
-    @include adaptiv("font-size", 18, 12, 0);
+    text-decoration: none;
+    @include adaptiv("font-size", 22, 14, 0);
 
     &:hover {
       color: $aqua;
       padding-bottom: 20px;
     }
-    @media (max-width: 958px) {
-      border: none;
-      color: $dark;
-
-      &:hover {
-        padding: 5px 8px;
-      }
-
-      @media (max-width: 760px) {
-        font-size: 20px;
-        @include adaptiv("font-size", 20, 16, 0);
-      }
-    }
   }
 }
+
 .burger {
   display: none;
-  grid-column: 3;
+  margin-left: 20px;
+  z-index: 3;
   @media (max-width: 770px) {
     display: block;
+    margin-left: auto;
   }
   &__circle {
     background-color: $blue;
@@ -465,7 +414,7 @@ $maxWidthContainer: 1100;
 .contact {
   display: flex;
   align-items: center;
-  display: none;
+  //display: none;
   &__img {
     width: 40px;
     height: 40px;
@@ -993,6 +942,7 @@ $maxWidthContainer: 1100;
     transition: 0.8s;
     margin-left: 8px;
   }
+
   &__title {
     @include adaptiv("font-size", 18, 14, 0);
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -1008,6 +958,8 @@ $maxWidthContainer: 1100;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
+
     @include adaptiv("padding", 30, 10, 0);
     @media (max-width: 360px) {
       height: 130px;
@@ -1023,22 +975,34 @@ $maxWidthContainer: 1100;
     margin-top: -12px;
     line-height: 24px;
     display: none;
-    transition: 1s;
+    text-align: center;
+
+    z-index: 1;
   }
 }
-// доп. стили для js
+// доп. стили для спойлера в js
 .show-block {
   display: block;
-  transition: 1s;
+  animation: sweep 0.4s ease-out;
 }
+
 .rotate {
   transform: rotate(90deg);
 }
 
-.spoiler-bcg {
-  background-color: rgb(165, 162, 162);
-  box-shadow: 0px 2px 7px 3px $dark;
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    transition: 0.5s;
+    transform: translateY(-150px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
+
 //
 .contacts {
   position: relative;
@@ -1049,6 +1013,7 @@ $maxWidthContainer: 1100;
   grid-template-rows: 100px auto auto 50px;
   grid-template-columns: 50px minmax(300px, 1fr) minmax(300px, 1fr) 50px;
   align-items: center;
+  min-height: 100%; //посмотреть как будет
   @media (max-width: 900px) {
     grid-template-columns: 30px auto 30px;
   }
@@ -1082,8 +1047,8 @@ $maxWidthContainer: 1100;
 
   &__image {
     position: absolute;
-    top: 25%;
-    left: 10%;
+    top: 30%;
+    left: 15%;
     transition: 1s;
     animation: animat-image 2s ease 2s infinite alternate forwards;
 
@@ -1097,6 +1062,7 @@ $maxWidthContainer: 1100;
   }
   to {
     transform: rotateY(30deg);
+    filter: drop-shadow(-8px -1px 0px #cdbca2);
   }
 }
 .contact-label {
@@ -1238,8 +1204,8 @@ $maxWidthContainer: 1100;
 .footer {
   position: relative;
   display: grid;
-  background-color: #0b1d26;
-  grid-template-columns: 50px auto auto 50px;
+  background-color: #181712;
+  grid-template-columns: 50px auto auto auto 50px;
   grid-template-rows: 100px 30px;
   align-items: center;
   @media (max-width: 560px) {
@@ -1255,21 +1221,27 @@ $maxWidthContainer: 1100;
   }
   &__copyright {
     color: $white;
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     @include adaptiv("font-size", 24, 14, 0);
-    letter-spacing: 2px;
     @media (max-width: 560px) {
       text-align: center;
     }
   }
+  &__image {
+    grid-column: 2;
+  }
+  &__image img {
+    cursor: pointer;
+  }
 }
+
 .social {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
-  grid-column: 3;
+  grid-column: 4;
   width: 100%;
   grid-row: 1;
 
