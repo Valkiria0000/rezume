@@ -69,36 +69,36 @@
         </div>
         <!-- /.parallax__body -->
       </section>
-      <section id="info" class="content">
+      <section id="info" class="content page-1">
         <div class="content__container">
           <header class="content__header header">
             <div class="header__logo">
           <img src="img/logo_foto.jpg" alt="логотип" />
         </div>
         <!-- /.header__logo -->   <div class="header__burger burger" >
-  <div class="burger__circle"><span class="burger__line"></span></div>
-  <!-- /.burger__circle -->
+  <span class="burger__line"></span>
+  
         </div><!-- /.header__burger burger-->
         
          
             <nav class="header__nav">
               <ul class="nav">
                 <li class="nav__item">
-                  <a href="#info" class="nav__link active">обо мне</a>
+                  <a data-goto=".page-1" href="#" class="nav__link active">обо мне</a>
                 </li>
                 <li class="nav__item">
-                  <a href="#services" class="nav__link">сервис</a>
+                  <a data-goto=".page-2" href="#" class="nav__link">сервис</a>
                 </li>
                 <li class="nav__item">
-                  <a href="#portfolio" class="nav__link">работы</a>
+                  <a data-goto=".page-3" href="#" class="nav__link">работы</a>
                 </li>
 
               
                 <li id="" class="nav__item">
-                  <a href="#faq" class="nav__link">FAQ</a>
+                  <a data-goto=".page-4" href="#" class="nav__link">FAQ</a>
                 </li> 
                  <li class="nav__item">
-                  <a href="#contacts" class="nav__link">контакт</a>
+                  <a data-goto=".page-5" href="#" class="nav__link">контакт</a>
                 </li>
               </ul>
             </nav>
@@ -154,7 +154,7 @@
         <!-- /.content__container -->
         
       </section>
-      <section id="services" class="services">
+      <section id="services" class="services page-2" >
         <div class="content__label label-services">Сервис</div>
         <!-- /.content__label -->
         <div class="services__container">
@@ -182,27 +182,28 @@
               <img src="img/svg/card__1.svg" alt="">
              
   
-              <h3 class="cards-animation__title" >Отзывчивый</h3>
-  <p class="cards-animation__paragraph">Отображение вашего ресурса на всех современных девайсах.</p>
+             <div class="cards-animation__text"> <h3 class="cards-animation__title" >Отзывчивый</h3>
+  <p class="cards-animation__paragraph">Отображение вашего ресурса на всех современных девайсах.</p></div><!-- /.cards-animation__text -->
             </div>
             <!-- /.cards-animation__card -->
             <div class="cards-animation__card">
              <img src="img/svg/card__2.svg" alt="">
+             <div class="cards-animation__text"> 
               <h3 class="cards-animation__title" >Интуитивно понятный</h3>
               <p class="cards-animation__paragraph">Предпочтение простому в использовании, интуитивно понятному UX/UI. 
-               </p></div>
+               </p> </div><!-- /.cards-animation__text --></div>
             <!-- /.cards-animation__card-->
            
               <div class="cards-animation__card">
                <img src="img/svg/card__4.svg" alt="">
-              <h3 class="cards-animation__title" >Динамический</h3>
+               <div class="cards-animation__text"><h3 class="cards-animation__title" >Динамический</h3>
               <p class="cards-animation__paragraph">Веб-сайты не должны быть статичными, мне нравится оживлять страницы</p></div>
-            <!-- /.cards-animation__card --> 
+            </div><!-- /.cards-animation__text --> <!-- /.cards-animation__card --> 
             <div class="cards-animation__card">
               <img src="img/svg/card__3.svg" alt="">
-            <h3 class="cards-animation__title" >Быстрый</h3>
+              <div class="cards-animation__text"> <h3 class="cards-animation__title" >Быстрый</h3>
               <p class="cards-animation__paragraph">Быстрое время загрузки и взаимодействие без задержек - это важно.</p></div>
-            <!-- /.cards-animation__card -->
+            </div><!-- /.cards-animation__text --><!-- /.cards-animation__card -->
         
            </div>
            <!-- /.cards-animation -->
@@ -214,7 +215,7 @@
         <!-- /.services__container -->
       </section>
 
-      <section id="portfolio" class="portfolio">
+      <section id="portfolio" class="portfolio page-3">
         <div class="content__label label-portfolio">работы</div>
         <!-- /.content__label -->
             <div class="portfolio__image">
@@ -231,7 +232,7 @@
            </div>     <!-- /.portfolio__image -->
       </section>
 
-      <section id="faq" class="faq">
+      <section id="faq" class="faq page-4">
         <div class="parallax__label faq-label">FAQ</div>
         <!-- /.content__label -->
 <h3 class="faq__title">Часто задаваемые вопросы</h3>
@@ -261,7 +262,7 @@
 <!-- /.faq__content -->
 
       </section>
-    <section id="contacts" class="contacts">
+    <section id="contacts " class="contacts page-5">
       
         <div class="content__label contact-label">контакт</div>
         <!-- /.content__label -->

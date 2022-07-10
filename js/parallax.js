@@ -1,4 +1,4 @@
-window.onload = function () {
+/*window.onload = function () {
   const parallax = document.querySelector(".parallax");
 
   if (parallax) {
@@ -104,9 +104,9 @@ window.onload = function () {
       }%)`;
     }
   }
-};
-
-let images = [
+};*/
+//******************************************************/
+/*let images = [
   {
     url: "..//img/my_foto1.jpg",
     title: "Мое фото 1",
@@ -236,9 +236,9 @@ let slideOption = {
 
 document.addEventListener("DOMContentLoaded", function () {
   initSlider(slideOption);
-});
-
-function spoiler() {
+});*/
+//******************************************************/
+/*function spoiler() {
   const topic = document.querySelector(".topic");
   const arrows = document.querySelectorAll(".arrow");
 
@@ -276,44 +276,84 @@ function spoiler() {
 document.addEventListener("DOMContentLoaded", function () {
   spoiler();
 });
+*/
+//******************************************************/
 
-const header = document.querySelector(".header");
 const nav = document.querySelector(".nav");
 const burger = document.querySelector(".burger");
 
-header.addEventListener("click", showMenu);
-function showMenu(e) {
-  if (e.target.closest(".burger")) {
-    nav.style.cssText = `
+burger.addEventListener("click", showMenu);
+function showMenu() {
+  if (this.closest(".burger")) {
+    nav.style = `
     display: block;
     `;
+    nav.classList.toggle("nav-active");
+    // document.body.classList.toggle("lock"); //баг*******************
+
+    console.dir(burger);
+    burger.children[0].classList.toggle("burger-active");
   }
 }
-header.addEventListener("click", closeMenu);
+//************************************************** */
+function scrollLink() {
+  const navlinks = document.querySelectorAll(".nav__link[data-goto]");
 
-function closeMenu(e) {
-  if (e.target.closest(".burger")) {
-    nav.style.cssText = `
-    display: block;
-    `;
-  }
-}
+  if (navlinks.length > 0) {
+    navlinks.forEach((navLink) => {
+      navLink.addEventListener("click", onNavClick);
+    });
 
-/*
-const arrowBtns = document.querySelectorAll(".arrow");
-const topicTexts = document.querySelectorAll(".topic__text");
+    function onNavClick(e) {
+      const navLink = e.target;
 
-arrowBtns.forEach((arrowBtn, index) => {
-  arrowBtn.addEventListener("click", (event) => {
-    arrowBtn.classList.toggle("rotate");
+      if (
+        navLink.dataset.goto &&
+        document.querySelector(navLink.dataset.goto)
+      ) {
+        const goToPage = document.querySelector(navLink.dataset.goto);
+        const goToPageValue = goToPage.getBoundingClientRect().top + scrollY;
 
-    topicTexts.forEach((topicText, indexText) => {
-      if (index === indexText) {
-        topicText.style = `display:block;`;
-      } else {
-        topicText.style = `display:none;`;
+        window.scrollTo({
+          top: goToPageValue,
+          behavior: "smooth",
+        });
+        e.preventDefault();
       }
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", function () {
+  scrollLink();
+});
+//********************************* */
+function cardAnimat() {
+  const cards = document.querySelector(".cards-animation");
+  let card = cards.querySelectorAll(".cards-animation__card");
+
+  cards.addEventListener("click", function () {
+    cards.style = `
+    transform: rotate(0deg);
+      `;
+    card.forEach(function (cardItem) {
+      cardItem.style = `
+      box-shadow: none;
+      transform: translate(0px);
+      
+      `;
+
+      cardItem.children[0].style = `
+      display: none;
+      `;
+      let text = cardItem.querySelectorAll(".cards-animation__text");
+
+      text[0].style = `
+      display: block;
+     `;
     });
   });
+  return;
+}
+document.addEventListener("DOMContentLoaded", function () {
+  cardAnimat();
 });
-*/

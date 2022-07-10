@@ -46,6 +46,10 @@ $maxWidthContainer: 1100;
   height: 100%;
   line-height: 1;
 }
+
+.lock {
+  overflow: hidden;
+}
 .wrapper {
   min-height: 100%;
   overflow: hidden;
@@ -332,10 +336,9 @@ $maxWidthContainer: 1100;
   border-radius: 15px;
   text-transform: uppercase;
   @media (max-width: 770px) {
-    display: none;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     background-color: rgba(7, 7, 7, 0.9);
     width: 100%;
     height: 100%;
@@ -344,7 +347,9 @@ $maxWidthContainer: 1100;
     flex-direction: column;
     padding-top: 130px;
     border-radius: 0;
+    overflow: auto;
   }
+
   &__item {
     margin-top: 0;
     margin-right: 20px;
@@ -369,48 +374,64 @@ $maxWidthContainer: 1100;
     }
   }
 }
-
+.nav-active {
+  left: 0;
+}
 .burger {
   display: none;
-  margin-left: 20px;
-  z-index: 3;
   @media (max-width: 770px) {
-    display: block;
+    display: flex;
+    justify-content: center;
     margin-left: auto;
-  }
-  &__circle {
+    z-index: 3;
     background-color: $blue;
     height: 50px;
     width: 50px;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
+    left: 0;
   }
 }
 .burger__line,
 .burger__line::before,
 .burger__line::after {
-  display: flex;
-  background-color: $grey;
-  width: 30px;
-  height: 2px;
-  border-radius: 2px;
   position: absolute;
-  top: 50%;
-  margin-top: -1px;
-  left: 50%;
-  margin-left: -15px;
-  box-shadow: 1px 1px 3px $dark;
+  background-color: $white;
+  width: 35px;
+  height: 3px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px $dark;
 }
 
-.burger__line::before {
-  content: "";
-  transform: translateY(-10px);
+.burger__line {
+  top: 50%;
 }
+.burger__line::before,
 .burger__line::after {
   content: "";
+  display: block;
+  transition: all 0.3s ease 0s;
+}
+.burger__line::before {
+  transform: translateY(-10px);
+}
+
+.burger__line::after {
   transform: translateY(10px);
 }
+.burger__line.burger-active {
+  height: 0;
+}
+
+.burger__line.burger-active::before {
+  transform: rotate(-45deg);
+}
+
+.burger__line.burger-active::after {
+  transform: rotate(45deg);
+}
+
 .contact {
   display: flex;
   align-items: center;
@@ -639,6 +660,7 @@ $maxWidthContainer: 1100;
 }
 .services {
   position: relative;
+  min-height: 100vh;
 
   background-color: $dark-blue;
   display: grid;
@@ -674,34 +696,18 @@ $maxWidthContainer: 1100;
     justify-content: center;
   }
 }
+
 .block {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 
-  @media (max-width: 865px) {
-    flex-direction: column;
-    margin-top: 40px;
-  }
   &__left {
-    width: 40%;
-    @media (max-width: 865px) {
-      width: 100%;
-    }
+    width: 45%;
   }
 
   &__right {
-    width: 60%;
-    min-height: 325px;
-    display: flex;
-    justify-content: center;
-    @media (max-width: 865px) {
-      width: 90%;
-      justify-content: flex-start;
-      height: 402px;
-      @media (max-width: 723px) {
-        height: 100%;
-      }
-    }
+    width: 55%;
     .cards-animation {
       display: flex;
       justify-content: center;
@@ -710,38 +716,25 @@ $maxWidthContainer: 1100;
       transition: 1s;
       transform: rotateX(55deg) rotateZ(-45deg) rotateY(10deg);
       max-width: 500px;
-      transform-style: preserve-3d;
 
-      @media (max-width: 1210px) {
-        transform: rotate(0);
-
-        @media (max-width: 865px) {
-          transform: rotateX(75deg) rotateZ(-47deg) rotateY(-3deg);
-        }
-
-        @media (max-width: 723px) {
-          transform: rotate(0);
-        }
-      }
       &__card {
-        width: 200px;
-        height: 250px;
         margin: 22px;
         background-color: rgb(74, 224, 119);
         transition: 1s;
         padding: 20px;
-        box-shadow: -5px 4px 1px rgb(34, 85, 48);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid $dark;
-        @include adaptiv("width", 200, 160, 0);
-        @include adaptiv("height", 250, 220, 0);
+
+        box-shadow: 1px 2px 3px white;
+        @include adaptiv("width", 180, 150, 0);
+        @include adaptiv("height", 180, 150, 0);
 
         @media (max-width: 540px) {
           width: 300px;
         }
+
         @media (max-width: 400px) {
           width: 250px;
           margin: 5px;
@@ -749,13 +742,16 @@ $maxWidthContainer: 1100;
       }
       &__card:hover {
         cursor: pointer;
-        transform: translateZ(20px);
+        transition: 0.5s;
+        transform: translate(30px);
+        box-shadow: -5px 4px 1px rgb(24, 75, 38);
         box-shadow: -10px 14px 1px 3px rgb(10, 77, 30),
           -20px 24px 1px 3px rgb(34, 129, 63),
-          -30px 34px 1px 3px rgb(78, 189, 111),
-          -40px 44px 1px 3px rgb(167, 250, 192);
+          -30px 34px 1px 3px rgb(78, 189, 111);
       }
-
+      &__text {
+        display: none;
+      }
       &__title {
         text-align: center;
         margin-bottom: 5px;
