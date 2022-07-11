@@ -661,11 +661,10 @@ $maxWidthContainer: 1100;
 .services {
   position: relative;
   min-height: 100vh;
-
   background-color: $dark-blue;
   display: grid;
   grid-template-columns: 50px auto auto auto 50px;
-  grid-template-rows: 130px auto;
+  grid-template-rows: 130px auto 60px;
 
   @media (max-width: 950px) {
     grid-template-columns: 30px auto auto auto 30px;
@@ -684,7 +683,7 @@ $maxWidthContainer: 1100;
     font-family: "IBM Plex Serif", sans-serif;
     color: $aqua;
     text-shadow: 9px 6px 5px #000;
-    @include adaptiv("font-size", 32, 16, 0);
+    @include adaptiv("font-size", 30, 14, 0);
   }
 }
 .label-services {
@@ -701,13 +700,22 @@ $maxWidthContainer: 1100;
   display: flex;
   align-items: center;
   justify-content: space-around;
-
+  @media (max-width: 1090px) {
+    flex-direction: column;
+  }
   &__left {
     width: 45%;
+    @media (max-width: 1090px) {
+      width: 100%;
+      margin-top: 50px;
+    }
   }
 
   &__right {
     width: 55%;
+    @media (max-width: 1090px) {
+      width: 100%;
+    }
     .cards-animation {
       display: flex;
       justify-content: center;
@@ -715,10 +723,20 @@ $maxWidthContainer: 1100;
       align-items: center;
       transition: 1s;
       transform: rotateX(55deg) rotateZ(-45deg) rotateY(10deg);
-      max-width: 500px;
 
+      @media (max-width: 1090px) {
+        flex-wrap: nowrap;
+        transform: rotateX(55deg) rotateZ(-27deg) rotateY(10deg);
+      }
+      @media (max-width: 780px) {
+        flex-wrap: wrap;
+      }
+      @media (max-width: 675px) {
+        flex-direction: column;
+        transform: none;
+      }
       &__card {
-        margin: 22px;
+        margin: 38px;
         background-color: rgb(74, 224, 119);
         transition: 1s;
         padding: 20px;
@@ -726,28 +744,33 @@ $maxWidthContainer: 1100;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        box-shadow: -5px 4px 1px rgb(24, 75, 38);
+        box-shadow: -10px 14px 1px 3px rgb(10, 77, 30),
+          -20px 24px 1px 3px rgb(34, 129, 63),
+          -30px 34px 1px 3px rgb(78, 189, 111);
 
-        box-shadow: 1px 2px 3px white;
         @include adaptiv("width", 180, 150, 0);
         @include adaptiv("height", 180, 150, 0);
-
-        @media (max-width: 540px) {
-          width: 300px;
+        @media (max-width: 1090px) {
+          margin: 25px;
         }
-
-        @media (max-width: 400px) {
+        @media (max-width: 675px) {
           width: 250px;
-          margin: 5px;
+          box-shadow: none;
+          margin: 10px;
         }
       }
       &__card:hover {
         cursor: pointer;
         transition: 0.5s;
-        transform: translate(30px);
-        box-shadow: -5px 4px 1px rgb(24, 75, 38);
-        box-shadow: -10px 14px 1px 3px rgb(10, 77, 30),
-          -20px 24px 1px 3px rgb(34, 129, 63),
-          -30px 34px 1px 3px rgb(78, 189, 111);
+        transform: translateY(30px);
+        box-shadow: 1px 2px 3px white;
+        @media (max-width: 1090px) {
+          transform: translateZ(30px 10px);
+        }
+        @media (max-width: 675px) {
+          transform: none;
+        }
       }
       &__text {
         display: none;

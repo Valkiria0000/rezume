@@ -1,4 +1,4 @@
-/*window.onload = function () {
+window.onload = function () {
   const parallax = document.querySelector(".parallax");
 
   if (parallax) {
@@ -104,9 +104,9 @@
       }%)`;
     }
   }
-};*/
+};
 //******************************************************/
-/*let images = [
+let images = [
   {
     url: "..//img/my_foto1.jpg",
     title: "Мое фото 1",
@@ -236,9 +236,9 @@ let slideOption = {
 
 document.addEventListener("DOMContentLoaded", function () {
   initSlider(slideOption);
-});*/
+});
 //******************************************************/
-/*function spoiler() {
+function spoiler() {
   const topic = document.querySelector(".topic");
   const arrows = document.querySelectorAll(".arrow");
 
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   spoiler();
 });
-*/
+
 //******************************************************/
 
 const nav = document.querySelector(".nav");

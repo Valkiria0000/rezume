@@ -755,7 +755,7 @@
   background-color: #0b1d26;
   display: grid;
   grid-template-columns: 50px auto auto auto 50px;
-  grid-template-rows: 130px auto;
+  grid-template-rows: 130px auto 60px;
 }
 @media (max-width: 950px) {
   .services {
@@ -775,7 +775,7 @@
   font-family: "IBM Plex Serif", sans-serif;
   color: #89e4e4;
   text-shadow: 9px 6px 5px #000;
-  font-size: calc( 16px + 16 * ((100vw - 320px) / 1120) );
+  font-size: calc( 14px + 16 * ((100vw - 320px) / 1120) );
 }
 
 .label-services {
@@ -803,11 +803,30 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
+@media (max-width: 1090px) {
+  .block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .block__left {
   width: 45%;
 }
+@media (max-width: 1090px) {
+  .block__left {
+    width: 100%;
+    margin-top: 50px;
+  }
+}
 .block__right {
   width: 55%;
+}
+@media (max-width: 1090px) {
+  .block__right {
+    width: 100%;
+  }
 }
 .block__right .cards-animation {
   display: -webkit-box;
@@ -825,10 +844,33 @@
   transition: 1s;
   -webkit-transform: rotateX(55deg) rotateZ(-45deg) rotateY(10deg);
           transform: rotateX(55deg) rotateZ(-45deg) rotateY(10deg);
-  max-width: 500px;
+}
+@media (max-width: 1090px) {
+  .block__right .cards-animation {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-transform: rotateX(55deg) rotateZ(-27deg) rotateY(10deg);
+            transform: rotateX(55deg) rotateZ(-27deg) rotateY(10deg);
+  }
+}
+@media (max-width: 780px) {
+  .block__right .cards-animation {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+@media (max-width: 675px) {
+  .block__right .cards-animation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 .block__right .cards-animation__card {
-  margin: 22px;
+  margin: 38px;
   background-color: #4ae077;
   -webkit-transition: 1s;
   transition: 1s;
@@ -846,32 +888,46 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-shadow: 1px 2px 3px white;
-          box-shadow: 1px 2px 3px white;
+  -webkit-box-shadow: -5px 4px 1px #184b26;
+          box-shadow: -5px 4px 1px #184b26;
+  -webkit-box-shadow: -10px 14px 1px 3px #0a4d1e, -20px 24px 1px 3px #22813f, -30px 34px 1px 3px #4ebd6f;
+          box-shadow: -10px 14px 1px 3px #0a4d1e, -20px 24px 1px 3px #22813f, -30px 34px 1px 3px #4ebd6f;
   width: calc( 150px + 30 * ((100vw - 320px) / 1120) );
   height: calc( 150px + 30 * ((100vw - 320px) / 1120) );
 }
-@media (max-width: 540px) {
+@media (max-width: 1090px) {
   .block__right .cards-animation__card {
-    width: 300px;
+    margin: 25px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 675px) {
   .block__right .cards-animation__card {
     width: 250px;
-    margin: 5px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    margin: 10px;
   }
 }
 .block__right .cards-animation__card:hover {
   cursor: pointer;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  -webkit-transform: translate(30px);
-          transform: translate(30px);
-  -webkit-box-shadow: -5px 4px 1px #184b26;
-          box-shadow: -5px 4px 1px #184b26;
-  -webkit-box-shadow: -10px 14px 1px 3px #0a4d1e, -20px 24px 1px 3px #22813f, -30px 34px 1px 3px #4ebd6f;
-          box-shadow: -10px 14px 1px 3px #0a4d1e, -20px 24px 1px 3px #22813f, -30px 34px 1px 3px #4ebd6f;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-box-shadow: 1px 2px 3px white;
+          box-shadow: 1px 2px 3px white;
+}
+@media (max-width: 1090px) {
+  .block__right .cards-animation__card:hover {
+    -webkit-transform: translateZ(30px 10px);
+            transform: translateZ(30px 10px);
+  }
+}
+@media (max-width: 675px) {
+  .block__right .cards-animation__card:hover {
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 .block__right .cards-animation__text {
   display: none;
