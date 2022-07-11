@@ -116,7 +116,7 @@ let images = [
     title: "Мое фото 2",
   },
   {
-    url: "./img/my_foto3.jpg",
+    url: "img/my_foto3.jpg",
     title: "Мое фото 3",
   },
 ];
