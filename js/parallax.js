@@ -108,15 +108,15 @@ window.onload = function () {
 //******************************************************/
 let images = [
   {
-    url: "./img/my_foto1.jpg",
+    url: "..//img/my_foto1.jpg",
     title: "Мое фото 1",
   },
   {
-    url: "./img/my_foto2.JPG",
+    url: "..//img/my_foto2.JPG",
     title: "Мое фото 2",
   },
   {
-    url: "./img/my_foto3.jpg",
+    url: "..//img/my_foto3.jpg",
     title: "Мое фото 3",
   },
 ];
