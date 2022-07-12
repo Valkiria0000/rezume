@@ -302,7 +302,7 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  width: 90%;
+  width: 80%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1273,7 +1273,7 @@
 }
 .contacts__image {
   position: absolute;
-  top: 30%;
+  top: 38%;
   left: 15%;
   -webkit-transition: 1s;
   transition: 1s;
