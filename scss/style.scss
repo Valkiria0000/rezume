@@ -294,7 +294,7 @@ $maxWidthContainer: 1100;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    //margin-left: 20px;
+    width: 90%;
     align-items: center;
 
     @media (max-width: 895px) {
@@ -575,6 +575,7 @@ $maxWidthContainer: 1100;
   position: relative;
   @include adaptiv("width", 300, 200, 0);
   @media (max-width: 1025px) {
+    //****************************************!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**********/
     width: 240px;
     height: 180px;
 
