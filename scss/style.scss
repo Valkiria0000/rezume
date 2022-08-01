@@ -294,7 +294,7 @@ $maxWidthContainer: 1100;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 80%;
+    width: 100%;
     align-items: center;
 
     @media (max-width: 895px) {
@@ -445,6 +445,7 @@ $maxWidthContainer: 1100;
     color: $aqua;
     text-decoration: none;
     padding-top: 5px;
+    font-size: 14px;
     &:hover {
       color: $white;
     }
@@ -1067,11 +1068,11 @@ $maxWidthContainer: 1100;
 
   &__image {
     position: absolute;
-    top: 38%;
+    top: 28%;
     left: 15%;
     transition: 1s;
     animation: animat-image 2s ease 2s infinite alternate forwards;
-
+    @include adaptiv("width", 350, 200, 0);
     @media (max-width: 900px) {
       display: none;
     }
@@ -1228,32 +1229,24 @@ $maxWidthContainer: 1100;
   grid-template-columns: 50px auto auto auto 50px;
   grid-template-rows: 100px 30px;
   align-items: center;
-  @media (max-width: 560px) {
-    grid-template-rows: 100px auto 30px;
-  }
 
   @media (max-width: 900px) {
-    grid-template-columns: 30px auto auto 30px;
+    grid-template-columns: 30px auto auto auto 30px;
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: 20px auto auto 20px;
+    grid-template-columns: 20px auto auto auto 20px;
   }
-  &__copyright {
-    color: $white;
-    grid-column: 3;
-    grid-row: 1;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    @include adaptiv("font-size", 24, 14, 0);
-    @media (max-width: 560px) {
-      text-align: center;
-    }
+  @media (max-width: 560px) {
   }
   &__image {
     grid-column: 2;
   }
   &__image img {
     cursor: pointer;
+  }
+  &__contact {
+    margin-left: 30px;
   }
 }
 
@@ -1264,17 +1257,11 @@ $maxWidthContainer: 1100;
   grid-column: 4;
   width: 100%;
   grid-row: 1;
-
   justify-content: flex-end;
-  @media (max-width: 560px) {
-    grid-row: 2;
-    grid-column: 2;
-    justify-content: center;
-  }
 
   &__image {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 }
 
