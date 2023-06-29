@@ -1,0 +1,14 @@
+import spoiler from "./modules/spoiler";
+import slider from "./modules/slider";
+import scrollLink from "./modules/scroll";
+import parallax from "./modules/parallax";
+import cardAnimat from "./modules/cardAnimat";
+import burger from "./modules/burgerMenu";
+console.log("hello");
+import "../style/style.css";
+spoiler();
+slider();
+scrollLink();
+parallax();
+cardAnimat();
+burger();
